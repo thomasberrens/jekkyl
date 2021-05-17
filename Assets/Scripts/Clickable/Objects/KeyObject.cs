@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class KeyObject : ClickableObject
 {
@@ -32,16 +33,8 @@ public class KeyObject : ClickableObject
     public override void OnClickObjectLogic()
     {
         Checklist checklist = RoomManager.GetComponent<Checklist>();
-        if (!checklist.HasPlayerPickedUpItem(gameObject))
-        {
-            checklist.AddItemToPickedUpList(this.gameObject);
-            EventManager.OnItemPickup?.Invoke();
-            Debug.Log("Picked up: " + checklist.ParseEnum<PickableObjects>(gameObject.name));
-        }
-        else
-        {
-            Debug.Log("Already picked up");
-        }
+        EventManager.OnItemPickup?.Invoke();
+        checklist.OnItemPickup(gameObject);
         
     }
 

@@ -3,15 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Checklist : MonoBehaviour
 {
     
-    private Dictionary<PickableObjects, GameObject> _objectsToPickUp = new Dictionary<PickableObjects, GameObject>();
+    private Dictionary<PickableObjects, GameObject> RoomObjects = new Dictionary<PickableObjects, GameObject>();
     
-    private Dictionary<PickableObjects, GameObject> pickedUp = new Dictionary<PickableObjects, GameObject>();
+    private Dictionary<PickableObjects, GameObject> PickedUpItems = new Dictionary<PickableObjects, GameObject>();
     
     private EventManager EventManager;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,14 +23,15 @@ public class Checklist : MonoBehaviour
             PickableObjects type = ParseEnum<PickableObjects>(_gameObject.name);
             if (type == null) continue;
             
-            _objectsToPickUp.Add(type, _gameObject);
+            RoomObjects.Add(type, _gameObject);
         }
 
 
-        foreach (PickableObjects type in _objectsToPickUp.Keys)
+        foreach (PickableObjects type in RoomObjects.Keys)
         {
             Debug.Log("Added: " + type);
         }
+        
     }
 
     // Update is called once per frame
@@ -41,32 +44,46 @@ public class Checklist : MonoBehaviour
         }
     }
 
+    public void OnItemPickup(GameObject pickedUpObject)
+    {
+        if (pickedUpObject == null) return;
+        if (!HasPlayerPickedUpItem(pickedUpObject))
+        {
+            AddItemToPickedUpList(pickedUpObject);
+            Debug.Log("Picked up: " + ParseEnum<PickableObjects>(pickedUpObject.name));
+        }
+        else
+        {
+            Debug.Log("Already picked up");
+        }
+    }
+
     public bool HasPlayerPickedUpEverything()
     {
 
-        return _objectsToPickUp.Count == pickedUp.Count;
+        return RoomObjects.Count == PickedUpItems.Count;
     }
 
-    public Dictionary<PickableObjects, GameObject> GetAllItemsToPickup()
+    public Dictionary<PickableObjects, GameObject> GetAllRoomObjects()
     {
-        return _objectsToPickUp;
+        return RoomObjects;
     }
     
     public Dictionary<PickableObjects, GameObject> GetPickedUpItems()
     {
-        return pickedUp;
+        return PickedUpItems;
     }
 
     public void AddItemToPickedUpList(GameObject gameObject)
     {
         PickableObjects type = ParseEnum<PickableObjects>(gameObject.name);
-        pickedUp.Add(type, gameObject);
+        PickedUpItems.Add(type, gameObject);
     }
 
     public bool HasPlayerPickedUpItem(GameObject gameObject)
     {
         PickableObjects type = ParseEnum<PickableObjects>(gameObject.name);
-        return pickedUp.ContainsKey(type);
+        return PickedUpItems.ContainsKey(type);
     }
 
     public T ParseEnum<T>(string value)

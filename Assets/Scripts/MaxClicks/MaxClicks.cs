@@ -22,7 +22,6 @@ public class MaxClicks : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Click");
             MaxAmountOfClicks--;
         }
     }
