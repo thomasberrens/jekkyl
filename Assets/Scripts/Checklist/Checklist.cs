@@ -7,9 +7,9 @@ using UnityEngine;
 public class Checklist : MonoBehaviour
 {
     
-    private Dictionary<ChecklistType, GameObject> _objects = new Dictionary<ChecklistType, GameObject>();
+    private Dictionary<PickableObjects, GameObject> _objectsToPickUp = new Dictionary<PickableObjects, GameObject>();
     
-    private Dictionary<ChecklistType, GameObject> pickedUp = new Dictionary<ChecklistType, GameObject>();
+    private Dictionary<PickableObjects, GameObject> pickedUp = new Dictionary<PickableObjects, GameObject>();
     
     private EventManager EventManager;
     // Start is called before the first frame update
@@ -18,14 +18,14 @@ public class Checklist : MonoBehaviour
         EventManager = GetComponent<EventManager>();
         foreach (GameObject _gameObject in GameObject.FindGameObjectsWithTag("Checklist"))
         {
-            ChecklistType type = ParseEnum<ChecklistType>(_gameObject.name);
+            PickableObjects type = ParseEnum<PickableObjects>(_gameObject.name);
             if (type == null) continue;
             
-            _objects.Add(type, _gameObject);
+            _objectsToPickUp.Add(type, _gameObject);
         }
 
 
-        foreach (ChecklistType type in _objects.Keys)
+        foreach (PickableObjects type in _objectsToPickUp.Keys)
         {
             Debug.Log("Added: " + type);
         }
@@ -44,28 +44,28 @@ public class Checklist : MonoBehaviour
     public bool HasPlayerPickedUpEverything()
     {
 
-        return _objects.Count == pickedUp.Count;
+        return _objectsToPickUp.Count == pickedUp.Count;
     }
 
-    public Dictionary<ChecklistType, GameObject> GetAllItemsToPickup()
+    public Dictionary<PickableObjects, GameObject> GetAllItemsToPickup()
     {
-        return _objects;
+        return _objectsToPickUp;
     }
     
-    public Dictionary<ChecklistType, GameObject> GetPickedUpItems()
+    public Dictionary<PickableObjects, GameObject> GetPickedUpItems()
     {
         return pickedUp;
     }
 
     public void AddItemToPickedUpList(GameObject gameObject)
     {
-        ChecklistType type = ParseEnum<ChecklistType>(gameObject.name);
+        PickableObjects type = ParseEnum<PickableObjects>(gameObject.name);
         pickedUp.Add(type, gameObject);
     }
 
     public bool HasPlayerPickedUpItem(GameObject gameObject)
     {
-        ChecklistType type = ParseEnum<ChecklistType>(gameObject.name);
+        PickableObjects type = ParseEnum<PickableObjects>(gameObject.name);
         return pickedUp.ContainsKey(type);
     }
 

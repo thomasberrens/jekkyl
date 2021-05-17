@@ -28,7 +28,7 @@ public class CoinObject : ClickableObject
         {
             checklist.AddItemToPickedUpList(this.gameObject);
             EventManager.OnItemPickup?.Invoke();
-            Debug.Log("Picked up: " + checklist.ParseEnum<ChecklistType>(gameObject.name));
+            Debug.Log("Picked up: " + checklist.ParseEnum<PickableObjects>(gameObject.name));
         }
         else
         {
