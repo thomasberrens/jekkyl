@@ -312,7 +312,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1330310574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f75d5e6ebdf04fa46828396c6968b9d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 118f8428384028d4080345b808c04aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   outlineMaterial: {fileID: 2100000, guid: 90768fb4807d5cc4c9b5251357fa26a2, type: 2}

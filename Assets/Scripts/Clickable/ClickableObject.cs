@@ -10,10 +10,9 @@ public abstract class ClickableObject : MonoBehaviour
     private Material originalMaterial;
     private MeshRenderer m_Renderer;
 
-    public void Awake()
+    private void Awake()
     {
         m_Renderer = GetComponent<MeshRenderer>();
-        Debug.Log("????");
         originalMaterial = m_Renderer.material;
     }
 
