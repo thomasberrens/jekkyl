@@ -10,9 +10,12 @@ public class Checklist : MonoBehaviour
     private Dictionary<ChecklistType, GameObject> _objects = new Dictionary<ChecklistType, GameObject>();
     
     private Dictionary<ChecklistType, GameObject> pickedUp = new Dictionary<ChecklistType, GameObject>();
+    
+    private EventManager EventManager;
     // Start is called before the first frame update
     void Start()
     {
+        EventManager = GetComponent<EventManager>();
         foreach (GameObject _gameObject in GameObject.FindGameObjectsWithTag("Checklist"))
         {
             ChecklistType type = ParseEnum<ChecklistType>(_gameObject.name);
@@ -34,6 +37,7 @@ public class Checklist : MonoBehaviour
         if (HasPlayerPickedUpEverything())
         {
             Debug.Log("WIN");
+            EventManager.OnRoomWin?.Invoke();
         }
     }
 
