@@ -60,8 +60,7 @@ public class Checklist : MonoBehaviour
 
     public bool HasPlayerPickedUpEverything()
     {
-
-        return RoomObjects.Count == PickedUpItems.Count;
+        return RoomObjects.Count.Equals(PickedUpItems.Count);
     }
 
     public Dictionary<PickableObjects, GameObject> GetAllRoomObjects()
