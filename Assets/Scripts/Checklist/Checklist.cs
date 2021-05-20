@@ -39,8 +39,6 @@ public class Checklist : MonoBehaviour
             
             if (RoomObjects.Count <= i) break;
             
-            
-            
             GameObject _gameObject = RoomObjects.ElementAt(i).Value;
             _textObject.name = _gameObject.name;
             
