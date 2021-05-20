@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Checklist : MonoBehaviour
 {
@@ -13,17 +14,41 @@ public class Checklist : MonoBehaviour
     private Dictionary<PickableObjects, GameObject> PickedUpItems = new Dictionary<PickableObjects, GameObject>();
     
     private EventManager EventManager;
+
+    private Dictionary<PickableObjects, GameObject> ChecklistTexts = new Dictionary<PickableObjects, GameObject>();
     
     // Start is called before the first frame update
     void Start()
     {
         EventManager = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
+        
+        
         foreach (GameObject _gameObject in GameObject.FindGameObjectsWithTag("Checklist"))
         {
             PickableObjects type = ParseEnum<PickableObjects>(_gameObject.name);
             if (type == null) continue;
             
             RoomObjects.Add(type, _gameObject);
+        }
+
+        int i = 0;
+        foreach (GameObject _textObject in GameObject.FindGameObjectsWithTag("ChecklistText"))
+        {
+            Text text = _textObject.GetComponent<Text>();
+            text.text = "";
+            
+            if (RoomObjects.Count <= i) break;
+            
+            
+            
+            GameObject _gameObject = RoomObjects.ElementAt(i).Value;
+            _textObject.name = _gameObject.name;
+            
+            PickableObjects type = ParseEnum<PickableObjects>(_textObject.name);
+            text.text += _textObject.name;
+            text.color = Color.red;
+            ChecklistTexts.Add(type, _textObject);
+            i++;
         }
 
 
@@ -50,8 +75,14 @@ public class Checklist : MonoBehaviour
         if (!HasPlayerPickedUpItem(pickedUpObject))
         {
             AddItemToPickedUpList(pickedUpObject);
-            Debug.Log("Picked up: " + ParseEnum<PickableObjects>(pickedUpObject.name));
+            PickableObjects type = ParseEnum<PickableObjects>(pickedUpObject.name);
+            
+            Debug.Log("Picked up: " + type);
             EventManager.OnItemPickup?.Invoke();
+
+            GameObject checklistObject = ChecklistTexts[type];
+            Text text = checklistObject.GetComponent<Text>();
+            text.color = Color.green;
         }
         else
         {

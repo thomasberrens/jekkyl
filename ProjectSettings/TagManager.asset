@@ -8,6 +8,7 @@ TagManager:
   - RoomManager
   - ContinueButton
   - EventManager
+  - ChecklistText
   layers:
   - Default
   - TransparentFX
