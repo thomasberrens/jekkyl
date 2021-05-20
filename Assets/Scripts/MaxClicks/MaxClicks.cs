@@ -26,4 +26,9 @@ public class MaxClicks : MonoBehaviour
             MaxAmountOfClicks--;
         }
     }
+
+    public void refundClick()
+    {
+        MaxAmountOfClicks++;
+    }
 }
