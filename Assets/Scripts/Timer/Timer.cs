@@ -6,13 +6,16 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
    [SerializeField] public Text timer;
-    public float time;
+    public float time = 20;
     float msec;
     float sec;
     float min;
 
+    private EventManager _eventManager;
+    
     private void Start()
     {
+        _eventManager = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
         StartCoroutine("StopWatch");
     }
 
@@ -31,7 +34,8 @@ public class Timer : MonoBehaviour
             
             yield return null;
         }
-        Debug.Log("Cancel");
+        Debug.Log("Lose - Timer off");
+        _eventManager.OnRoomLose?.Invoke();
     }
 
     void Update()

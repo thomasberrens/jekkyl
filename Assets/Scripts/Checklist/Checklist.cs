@@ -17,7 +17,7 @@ public class Checklist : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EventManager = GetComponent<EventManager>();
+        EventManager = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
         foreach (GameObject _gameObject in GameObject.FindGameObjectsWithTag("Checklist"))
         {
             PickableObjects type = ParseEnum<PickableObjects>(_gameObject.name);
@@ -51,6 +51,7 @@ public class Checklist : MonoBehaviour
         {
             AddItemToPickedUpList(pickedUpObject);
             Debug.Log("Picked up: " + ParseEnum<PickableObjects>(pickedUpObject.name));
+            EventManager.OnItemPickup?.Invoke();
         }
         else
         {

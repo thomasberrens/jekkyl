@@ -9,7 +9,8 @@ public class MaxClicks : MonoBehaviour
     private EventManager EventManager;
     void Start()
     {
-        EventManager = GetComponent<EventManager>();
+     
+        EventManager = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
     }
 
     // Update is called once per frame

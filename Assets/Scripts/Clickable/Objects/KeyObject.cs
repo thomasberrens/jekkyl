@@ -12,7 +12,6 @@ public class KeyObject : ClickableObject
     void Start()
     {
         RoomManager = GameObject.Find("RoomManager");
-        EventManager = RoomManager.GetComponent<EventManager>();
     }
 
     // Update is called once per frame
@@ -33,7 +32,6 @@ public class KeyObject : ClickableObject
     public override void OnClickObjectLogic()
     {
         Checklist checklist = RoomManager.GetComponent<Checklist>();
-        EventManager.OnItemPickup?.Invoke();
         checklist.OnItemPickup(gameObject);
         
     }

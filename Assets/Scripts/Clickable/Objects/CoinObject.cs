@@ -10,7 +10,6 @@ public class CoinObject : ClickableObject
     void Start()
     {
         RoomManager = GameObject.Find("RoomManager");
-        EventManager = RoomManager.GetComponent<EventManager>();
     }
     
     public override void OnMouseEnterLogic()

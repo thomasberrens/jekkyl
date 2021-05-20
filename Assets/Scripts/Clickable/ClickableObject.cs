@@ -13,17 +13,15 @@ public abstract class ClickableObject : MonoBehaviour
     private void Awake()
     {
         m_Renderer = GetComponent<MeshRenderer>();
+        if (m_Renderer == null) return;
         originalMaterial = m_Renderer.material;
     }
 
     private void OnMouseOver()
     {
         OnMouseEnterLogic();
-        if (m_Renderer.material.Equals(originalMaterial))
-        {
-            m_Renderer.material = outlineMaterial;
-        }
-        
+        HandleOutlineEffect(true);
+
         if (CanClickObject() && Input.GetMouseButtonDown(0))
         {
             OnClickObjectLogic();
@@ -33,9 +31,26 @@ public abstract class ClickableObject : MonoBehaviour
     private void OnMouseExit()
     {
         OnMouseExitLogic();
-        if (!m_Renderer.material.Equals(originalMaterial))
+        HandleOutlineEffect(false);
+    }
+
+    private void HandleOutlineEffect(bool activate)
+    {
+        if (m_Renderer == null) return;
+
+        if (activate)
         {
-            m_Renderer.material = originalMaterial;
+            if (m_Renderer.material.Equals(originalMaterial))
+            {
+                m_Renderer.material = outlineMaterial;
+            }
+        }
+        else
+        {
+            if (!m_Renderer.material.Equals(originalMaterial))
+            {
+                m_Renderer.material = originalMaterial;
+            } 
         }
     }
 
