@@ -62,7 +62,7 @@ public class SafeObject : ClickableObject
         SafeCanvas.active = false;
     }
     
-    public void OpenSafe()
+    private void OpenSafe()
     {
         SafeCanvas.active = true;
     }
