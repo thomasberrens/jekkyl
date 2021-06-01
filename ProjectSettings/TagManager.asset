@@ -11,6 +11,7 @@ TagManager:
   - ChecklistText
   - SafeText
   - SafeCanvas
+  - DialogueNPC
   layers:
   - Default
   - TransparentFX
