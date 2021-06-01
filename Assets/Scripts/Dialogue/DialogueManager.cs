@@ -15,6 +15,8 @@ public class DialogueManager : MonoBehaviour {
 
     private DialogueTrigger _dialogueTrigger;
     public bool isTyping;
+
+    [SerializeField] private bool OnStart;
     
     [SerializeField] private GameObject _continueButton;
 
@@ -22,7 +24,11 @@ public class DialogueManager : MonoBehaviour {
     void Start () {
         sentences = new Queue<string>();
         _dialogueTrigger = GetComponent<DialogueTrigger>();
-        _dialogueTrigger.TriggerDialogue();
+        if (OnStart)
+        {
+            _dialogueTrigger.TriggerDialogue();
+        }
+
         _continueButton = GameObject.FindWithTag("ContinueButton");
     }
 

@@ -36,7 +36,7 @@ public abstract class ClickableObject : MonoBehaviour
 
     private void HandleOutlineEffect(bool activate)
     {
-        if (m_Renderer == null) return;
+        if (m_Renderer == null || outlineMaterial == null) return;
 
         if (activate)
         {
