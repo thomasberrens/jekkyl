@@ -9,6 +9,8 @@ TagManager:
   - ContinueButton
   - EventManager
   - ChecklistText
+  - SafeText
+  - SafeCanvas
   layers:
   - Default
   - TransparentFX
