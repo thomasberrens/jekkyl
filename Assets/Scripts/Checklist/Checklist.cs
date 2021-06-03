@@ -37,7 +37,7 @@ public class Checklist : MonoBehaviour
             Text text = _textObject.GetComponent<Text>();
             text.text = "";
             
-            if (RoomObjects.Count <= i) break;
+            if (RoomObjects.Count <= i) continue;
             
             GameObject _gameObject = RoomObjects.ElementAt(i).Value;
             _textObject.name = _gameObject.name;
