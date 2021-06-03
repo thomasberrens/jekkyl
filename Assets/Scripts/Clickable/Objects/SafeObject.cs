@@ -24,6 +24,7 @@ public class SafeObject : ClickableObject
         _textObject = GameObject.FindWithTag("SafeText");
         _text = _textObject.GetComponent<Text>();
         _text.text = "";
+        _text.color = Color.cyan;
         SafeCanvas.active = false;
     }
 
@@ -35,26 +36,14 @@ public class SafeObject : ClickableObject
 
     public void AddNumber(Button button)
     {
+         
         if (_text.text.Length > 4) return;
         _text.text += button.GetComponentInChildren<Text>().text;
     }
 
     public void CheckCode()
     {
-        if (!IsInputRight())
-        {
-            CurrentTries++;
-            if (CurrentTries >= MaxTries)
-            {
-                _text.text = "You tried too many times";
-                return;
-            }
-            StartCoroutine(WrongCode());
-        }
-        else
-        {
-            _text.text = "You Won!";
-        }
+        StartCoroutine(SetCodeText());
     }
 
     public void CloseSafe()
@@ -67,17 +56,42 @@ public class SafeObject : ClickableObject
         SafeCanvas.active = true;
     }
 
-    IEnumerator WrongCode()
+    IEnumerator SetCodeText()
     {
+
+        string text;
+        Color color;
+        
+        if (IsInputRight())
+        {
+            text = "You won!";
+            color = Color.green;
+        }
+        else
+        {
+            CurrentTries++;
+            if (CurrentTries >= MaxTries)
+            {
+                text = "You tried too many times";
+                color = Color.grey;
+            }
+            else
+            {
+                text = "Wrong";
+                color = Color.red;
+            }
+        }
+        
         float elapsedTime = 0;
         while (elapsedTime < waitTime)
         {
-            _text.text = "Wrong";
+            _text.text = text;
+            _text.color = color;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-
         _text.text = "";
+        _text.color = Color.cyan;
         yield return null;
     }
 
