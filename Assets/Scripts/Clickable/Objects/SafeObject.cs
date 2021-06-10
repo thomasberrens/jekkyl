@@ -61,7 +61,6 @@ public class SafeObject : ClickableObject
 
         string text;
         Color color;
-        
         if (IsInputRight())
         {
             text = "You won!";
