@@ -36,7 +36,7 @@ public abstract class ClickableObject : MonoBehaviour
         HandleOutlineEffect(true);
         if (CanClickObject() && Input.GetMouseButtonDown(0))
         {
-            StartCoroutine(GrabObject());
+            StartCoroutine(InteractWithObject());
             OnClickObjectLogic();
         }
     }
@@ -69,7 +69,7 @@ public abstract class ClickableObject : MonoBehaviour
         }
     }
     
-    IEnumerator GrabObject()
+    IEnumerator InteractWithObject()
     {
         GrabTimer = true;
         Cursor.SetCursor(CursorTextureOnClick, Vector2.zero, cursorMode);
