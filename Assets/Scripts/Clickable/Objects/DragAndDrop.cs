@@ -9,7 +9,6 @@ public class DragAndDrop : ClickableObject
     private Vector3 originalPosition;
 
     private bool isDragging;
-    
 
     [SerializeField] private GameObject Target;
 
@@ -34,14 +33,14 @@ public class DragAndDrop : ClickableObject
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("skkrrrrt");
+            Debug.Log("OnDrag");
             isDragging = true;
 
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("lossseeeee");
+            Debug.Log("StopDrag");
             isDragging = false;
             OnEndDrag();
         }
