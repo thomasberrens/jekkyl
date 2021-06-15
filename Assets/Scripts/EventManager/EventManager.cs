@@ -10,6 +10,8 @@ public class EventManager : MonoBehaviour
     public UnityEvent OnItemPickup;
     public UnityEvent OnRoomWin;
     public UnityEvent OnRoomLose;
+    public UnityEvent OnBreakVase;
+    public UnityEvent DoneWithFade;
 
     private void Start()
     {

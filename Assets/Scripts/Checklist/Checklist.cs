@@ -18,7 +18,7 @@ public class Checklist : MonoBehaviour
     private Dictionary<PickableObjects, GameObject> ChecklistTexts = new Dictionary<PickableObjects, GameObject>();
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         EventManager = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
         
@@ -26,6 +26,7 @@ public class Checklist : MonoBehaviour
         foreach (GameObject _gameObject in GameObject.FindGameObjectsWithTag("Checklist"))
         {
             PickableObjects type = ParseEnum<PickableObjects>(_gameObject.name);
+            
             if (type == null) continue;
             
             RoomObjects.Add(type, _gameObject);
@@ -45,6 +46,7 @@ public class Checklist : MonoBehaviour
             PickableObjects type = ParseEnum<PickableObjects>(_textObject.name);
             text.text += _textObject.name;
             text.color = Color.red;
+            
             ChecklistTexts.Add(type, _textObject);
             i++;
         }
@@ -60,11 +62,7 @@ public class Checklist : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (HasPlayerPickedUpEverything())
-        {
-            Debug.Log("WIN");
-            EventManager.OnRoomWin?.Invoke();
-        }
+
     }
 
     public void OnItemPickup(GameObject pickedUpObject)
@@ -81,6 +79,7 @@ public class Checklist : MonoBehaviour
             GameObject checklistObject = ChecklistTexts[type];
             Text text = checklistObject.GetComponent<Text>();
             text.color = Color.green;
+            HasPlayerPickedUpEverything();
         }
         else
         {
@@ -90,7 +89,12 @@ public class Checklist : MonoBehaviour
 
     public bool HasPlayerPickedUpEverything()
     {
-        return RoomObjects.Count.Equals(PickedUpItems.Count);
+        if (RoomObjects.Count.Equals(PickedUpItems.Count))
+        {
+            EventManager.OnRoomWin?.Invoke();
+            return true;
+        }
+        return false;
     }
 
     public Dictionary<PickableObjects, GameObject> GetAllRoomObjects()

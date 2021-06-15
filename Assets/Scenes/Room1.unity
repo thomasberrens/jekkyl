@@ -167,7 +167,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Win
+          m_StringArgument: Room2
           m_BoolArgument: 0
         m_CallState: 2
   OnRoomLose:
@@ -185,6 +185,12 @@ MonoBehaviour:
           m_StringArgument: Lose
           m_BoolArgument: 0
         m_CallState: 2
+  OnBreakVase:
+    m_PersistentCalls:
+      m_Calls: []
+  DoneWithFade:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &275659733
 Transform:
   m_ObjectHideFlags: 0
@@ -628,7 +634,6 @@ GameObject:
   - component: {fileID: 553810680}
   - component: {fileID: 553810681}
   - component: {fileID: 553810682}
-  - component: {fileID: 553810683}
   - component: {fileID: 553810684}
   m_Layer: 0
   m_Name: RoomManager
@@ -675,19 +680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7745436b7a37584fb3c87d6b2926282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &553810683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 553810679}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f73da43073bfd74eadc2138f2b5521e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxAmountOfClicks: 5
 --- !u!114 &553810684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5730,8 +5722,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413750820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.54, y: -0.03, z: 0}
-  m_LocalScale: {x: 0.41970164, y: 0.42435572, z: 1.0172}
+  m_LocalPosition: {x: 0.006, y: -0.03, z: 0}
+  m_LocalScale: {x: 0.5099395, y: 0.42435572, z: 1.0172}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -5916,7 +5908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2120129392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5941,6 +5933,9 @@ MonoBehaviour:
   MaxTries: 3
   CurrentTries: 0
   waitTime: 1
+  FadeTime: 1
+  OpenSafeImage: {fileID: 0}
+  Key: {fileID: 0}
 --- !u!212 &2120129393
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7998,7 +7993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2347381252281493023
 RectTransform:
   m_ObjectHideFlags: 0

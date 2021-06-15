@@ -25,7 +25,7 @@ public abstract class ClickableObject : MonoBehaviour
         originalMaterial = m_Renderer.material;
     }
 
-    private void OnMouseOver()
+    public void OnMouseOver()
     {
         IsHovering = true;
         OnMouseEnterLogic();
@@ -36,12 +36,13 @@ public abstract class ClickableObject : MonoBehaviour
         HandleOutlineEffect(true);
         if (CanClickObject() && Input.GetMouseButtonDown(0))
         {
+            Debug.Log("wtf");
             StartCoroutine(InteractWithObject());
             OnClickObjectLogic();
         }
     }
 
-    private void OnMouseExit()
+    public void OnMouseExit()
     {
         IsHovering = false;
         OnMouseExitLogic();

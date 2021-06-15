@@ -12,6 +12,9 @@ TagManager:
   - SafeText
   - SafeCanvas
   - DialogueNPC
+  - brokenvase
+  - VaseCode
+  - SafeBig
   layers:
   - Default
   - TransparentFX
