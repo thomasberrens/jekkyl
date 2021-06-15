@@ -12,6 +12,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent OnRoomLose;
     public UnityEvent OnBreakVase;
     public UnityEvent DoneWithFade;
+    public UnityEvent DoneWithBookFade;
 
     private void Start()
     {

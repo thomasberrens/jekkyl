@@ -15,6 +15,7 @@ TagManager:
   - brokenvase
   - VaseCode
   - SafeBig
+  - BookOpen
   layers:
   - Default
   - TransparentFX
