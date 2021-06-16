@@ -9,15 +9,28 @@ public class DragAndDrop : ClickableObject
     private Vector3 originalPosition;
 
     private bool isDragging;
-    
 
     [SerializeField] private GameObject Target;
+    [SerializeField] private Sprite EmptyTubeSprite;
+    [SerializeField] private TubeColors TubeColor;
+
+    private FlaskManager _flaskManager;
 
     private bool CanDrop;
     // Start is called before the first frame update
     void Start()
     {
         originalPosition = gameObject.transform.position;
+        TubeColors type = ParseEnum<TubeColors>(gameObject.name);
+        _flaskManager = GameObject.FindWithTag("Flask Manager").GetComponent<FlaskManager>();
+        if (type == null)
+        {
+            Debug.Log("There is something wrong with: " + gameObject.name);
+            return;
+        }
+
+        TubeColor = type;
+
     }
 
     // Update is called once per frame
@@ -29,19 +42,21 @@ public class DragAndDrop : ClickableObject
         }
         
     }
+    
+    public T ParseEnum<T>(string value)
+    {
+        return (T) Enum.Parse(typeof(T), value, true);
+    }
 
     public override void OnMouseEnterLogic()
     {
         if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("skkrrrrt");
+        { 
             isDragging = true;
-
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("lossseeeee");
             isDragging = false;
             OnEndDrag();
         }
@@ -52,11 +67,11 @@ public class DragAndDrop : ClickableObject
         if (CanDrop)
         {
             Debug.Log("Able to drop");
+            gameObject.GetComponent<SpriteRenderer>().sprite = EmptyTubeSprite;
         }
-        else
-        {
-            gameObject.transform.position = originalPosition;
-        }
+        
+        gameObject.transform.position = originalPosition;
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)

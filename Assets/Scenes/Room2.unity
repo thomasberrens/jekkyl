@@ -5541,6 +5541,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 983728886}
+  - component: {fileID: 983728887}
+  - component: {fileID: 983728888}
   m_Layer: 0
   m_Name: brokenvase
   m_TagString: brokenvase
@@ -5568,6 +5570,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &983728887
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983728885}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.1995792, y: 1.0575583}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8199878, y: 0.46232128}
+  m_EdgeRadius: 0
+--- !u!114 &983728888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983728885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7491230fe03382e46abaae5e1dafc689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMaterial: {fileID: 0}
+  CursorTextureOnHover: {fileID: 2800000, guid: 877952f5049686f448fd3e78b3b112cc,
+    type: 3}
+  CursorTextureOnClick: {fileID: 2800000, guid: 877952f5049686f448fd3e78b3b112cc,
+    type: 3}
+  OriginalCursorTexture: {fileID: 2800000, guid: b66e0b4ab6f5717448574c3e30a72993,
+    type: 3}
+  cursorMode: 0
 --- !u!1 &999902104
 GameObject:
   m_ObjectHideFlags: 0
@@ -5782,7 +5830,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 306e6ff9a7b7d5745829f8d1a0fed2a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5802,7 +5850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134623034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.123, y: -0.561, z: 0}
+  m_LocalPosition: {x: 5.016, y: -0.561, z: 0}
   m_LocalScale: {x: 0.08062821, y: 0.04084824, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

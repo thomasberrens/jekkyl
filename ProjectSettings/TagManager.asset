@@ -16,6 +16,7 @@ TagManager:
   - VaseCode
   - SafeBig
   - BookOpen
+  - Flask Manager
   layers:
   - Default
   - TransparentFX
