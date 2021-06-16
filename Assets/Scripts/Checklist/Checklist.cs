@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Checklist : MonoBehaviour
@@ -16,13 +17,14 @@ public class Checklist : MonoBehaviour
     private EventManager EventManager;
 
     private Dictionary<PickableObjects, GameObject> ChecklistTexts = new Dictionary<PickableObjects, GameObject>();
+
+    private Scene CurrentScene;
     
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         EventManager = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
-        
-        
+        CurrentScene = SceneManager.GetActiveScene();
         foreach (GameObject _gameObject in GameObject.FindGameObjectsWithTag("Checklist"))
         {
             PickableObjects type = ParseEnum<PickableObjects>(_gameObject.name);
@@ -32,6 +34,7 @@ public class Checklist : MonoBehaviour
             RoomObjects.Add(type, _gameObject);
         }
 
+        
         int i = 0;
         foreach (GameObject _textObject in GameObject.FindGameObjectsWithTag("ChecklistText"))
         {
@@ -51,18 +54,42 @@ public class Checklist : MonoBehaviour
             i++;
         }
 
-
         foreach (PickableObjects type in RoomObjects.Keys)
         {
             Debug.Log("Added: " + type);
         }
         
+        HandleSaveData();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    private void HandleSaveData()
+    {
+        if (DoesDataExists(CurrentScene.name + "_checklist_done"))
+        {
+            foreach (GameObject gameObject in ChecklistTexts.Values)
+            {
+                Text text = gameObject.GetComponent<Text>();
+                text.color = Color.green;
+                Debug.Log("Done");
+
+            }
+        }
+    }
+
+    private void SaveData(string DataToSave)
+    {
+        SaveManager.WriteString(DataToSave);
+    }
+
+    private bool DoesDataExists(string DataToCheck)
+    {
+       return SaveManager.AllData.Contains(DataToCheck);
     }
 
     public void OnItemPickup(GameObject pickedUpObject)
@@ -79,7 +106,12 @@ public class Checklist : MonoBehaviour
             GameObject checklistObject = ChecklistTexts[type];
             Text text = checklistObject.GetComponent<Text>();
             text.color = Color.green;
-            HasPlayerPickedUpEverything();
+
+            if (HasPlayerPickedUpEverything())
+            {
+                SaveData(CurrentScene.name + "_checklist_done");
+                EventManager.OnRoomWin?.Invoke();
+            }
         }
         else
         {
@@ -89,12 +121,7 @@ public class Checklist : MonoBehaviour
 
     public bool HasPlayerPickedUpEverything()
     {
-        if (RoomObjects.Count.Equals(PickedUpItems.Count))
-        {
-            EventManager.OnRoomWin?.Invoke();
-            return true;
-        }
-        return false;
+        return RoomObjects.Count.Equals(PickedUpItems.Count);
     }
 
     public Dictionary<PickableObjects, GameObject> GetAllRoomObjects()
