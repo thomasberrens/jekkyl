@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class BookObject : ClickableObject
 {
-    private GameObject BookCanvas;
     private GameObject BookOpen;
+    private GameObject Key;
 
     private Image _image;
 
@@ -17,10 +17,11 @@ public class BookObject : ClickableObject
     void Start()
     {
         EventManager = GameObject.FindWithTag("EventManager");
-        BookCanvas = GameObject.Find("BookCanvas");
         BookOpen = GameObject.FindWithTag("BookOpen");
+        Key = GameObject.Find("Key");
         _image = BookOpen.GetComponent<Image>();
-        BookCanvas.active = false;
+        BookOpen.active = false;
+        Key.active = false;
     }
 
     // Update is called once per frame
@@ -41,7 +42,8 @@ public class BookObject : ClickableObject
 
     public override void OnClickObjectLogic()
     {
-        BookCanvas.active = true;
+        BookOpen.active = true;
+        Key.active = true;
         StartCoroutine(FadeImage(false));
     }
 
@@ -69,7 +71,7 @@ public class BookObject : ClickableObject
                 yield return null;
             }
 
-            BookCanvas.active = false;
+            BookOpen.active = false;
         }
         // fade from transparent to opaque
         else
