@@ -40,7 +40,7 @@ public class FlaskManager : MonoBehaviour
                 {
                         gameObject.GetComponent<SpriteRenderer>().sprite = flaskSprites[flaskSprites.Length - 1].Sprite;
                         _eventManager.CorrectFlaskCombination?.Invoke();
-                        _eventManager.OnRoomLose?.Invoke();
+                        _eventManager.OnRoomWin?.Invoke();
                         Debug.Log("Correct combination");
                         return;
                 }
