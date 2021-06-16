@@ -13,6 +13,8 @@ public class EventManager : MonoBehaviour
     public UnityEvent OnBreakVase;
     public UnityEvent DoneWithFade;
     public UnityEvent DoneWithBookFade;
+    public UnityEvent CorrectFlaskCombination;
+    public UnityEvent InCorrectFlaskCombination;
 
     private void Start()
     {

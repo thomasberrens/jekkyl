@@ -67,11 +67,27 @@ public class DragAndDrop : ClickableObject
         if (CanDrop)
         {
             Debug.Log("Able to drop");
+            if (_flaskManager.IsFlaskFull())
+            {
+                Debug.Log("Full");
+                _flaskManager.GetEventManager().InCorrectFlaskCombination?.Invoke();
+                SetTubeToOriginalPosition();
+                return;
+            }
+            
+            _flaskManager.AddTube(TubeColor);
+            
             gameObject.GetComponent<SpriteRenderer>().sprite = EmptyTubeSprite;
+            TubeColor = TubeColors.EMPTY;
         }
         
-        gameObject.transform.position = originalPosition;
+        SetTubeToOriginalPosition();
         
+    }
+
+    private void SetTubeToOriginalPosition()
+    {
+        gameObject.transform.position = originalPosition;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
