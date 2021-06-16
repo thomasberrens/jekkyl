@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SafeObject : ClickableObject
@@ -22,6 +24,8 @@ public class SafeObject : ClickableObject
 
     private GameObject SafeCanvas;
 
+    private GameObject EventManager;
+
     private GameObject Safe;
     // Start is called before the first frame update
     void Start()
@@ -29,9 +33,10 @@ public class SafeObject : ClickableObject
         SafeCanvas = GameObject.FindWithTag("SafeCanvas");
         _textObject = GameObject.FindWithTag("SafeText");
         Safe = GameObject.FindWithTag("SafeBig");
+        EventManager = GameObject.FindWithTag("EventManager");
         _text = _textObject.GetComponent<Text>();
         _text.text = "";
-        _text.color = Color.cyan;
+        _text.color = Color.black;
 
         Key.active = false;
         
@@ -87,20 +92,22 @@ public class SafeObject : ClickableObject
 
     IEnumerator SetCodeText()
     {
+        bool correctInput = IsInputRight();
+        bool _codeLocked = false;
         string text;
         Color color;
-        if (IsInputRight())
+        if (correctInput)
         {
-            text = "You won!";
+            text = "Correct!";
             color = Color.green;
-            OnCodeCorrect();
         }
         else
         {
             CurrentTries++;
-            if (CurrentTries >= MaxTries)
+            _codeLocked = CurrentTries >= MaxTries;
+            if (_codeLocked)
             {
-                text = "Tried too much";
+                text = "LOCKED...";
                 color = Color.grey;
             }
             else
@@ -118,12 +125,24 @@ public class SafeObject : ClickableObject
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        
+
         _text.text = "";
-        _text.color = Color.cyan;
+        _text.color = Color.black;
+
+        if (_codeLocked)
+        {
+            Debug.Log("LOCKED");
+            SceneManager.LoadScene("Scenes/WinLose/Lose");
+            yield return null;
+        }
+        
+        if (correctInput)
+        {
+            OnCodeCorrect();
+        }
         yield return null;
     }
-    
+
     IEnumerator FadeImage(bool fadeAway)
     {
         Image image = Safe.GetComponent<Image>();

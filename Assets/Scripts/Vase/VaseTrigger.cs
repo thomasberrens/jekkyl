@@ -8,8 +8,8 @@ public class VaseTrigger : MonoBehaviour
 {
     private GameObject VaseCode;
     private Image image;
-    private bool FadingOut;
-    private bool FadingIn;
+    
+    private bool IsFading;
     [SerializeField] private float FadeTime = 1f;
     private void Start()
     {
@@ -62,6 +62,7 @@ public class VaseTrigger : MonoBehaviour
 
             GameObject.FindWithTag("EventManager").GetComponent<EventManager>().DoneWithFade?.Invoke();
         }
+        
     }
 
 

@@ -12,6 +12,10 @@ public class EventManager : MonoBehaviour
     public UnityEvent OnRoomLose;
     public UnityEvent OnBreakVase;
     public UnityEvent DoneWithFade;
+    public UnityEvent DoneWithBookFade;
+    public UnityEvent CorrectFlaskCombination;
+    public UnityEvent InCorrectFlaskCombination;
+    public UnityEvent OnCombiningFlasks;
 
     private void Start()
     {
