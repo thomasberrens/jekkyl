@@ -387,7 +387,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f3b820a7d9bede4eaaa3f2fcd363686, type: 3}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -423,8 +423,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 61.1, y: -4.4058}
-  m_SizeDelta: {x: 390.8326, y: 57.551}
+  m_AnchoredPosition: {x: 68.3, y: -7.2427}
+  m_SizeDelta: {x: 401.54, y: 72.037}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &501511492
 GameObject:
@@ -590,8 +590,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.3, y: -29.8}
-  m_SizeDelta: {x: 65.348, y: 20.3992}
+  m_AnchoredPosition: {x: 5.0542, y: -33.9339}
+  m_SizeDelta: {x: 75.456, y: 23.1323}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &532812258
 MonoBehaviour:
@@ -615,7 +615,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f3b820a7d9bede4eaaa3f2fcd363686, type: 3}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -5749,8 +5749,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1413750820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0318, y: -0.03, z: 0}
-  m_LocalScale: {x: 0.4350705, y: 0.42435572, z: 1.0172}
+  m_LocalPosition: {x: -0.0139, y: -0.03, z: 0}
+  m_LocalScale: {x: 0.44993022, y: 0.42435572, z: 1.0172}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -5872,8 +5872,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -208.38, y: 3.4913}
-  m_SizeDelta: {x: 79.4152, y: 41.757}
+  m_AnchoredPosition: {x: -214.05, y: 6.2}
+  m_SizeDelta: {x: 85.9264, y: 36.9822}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1793407444
 MonoBehaviour:
@@ -5897,7 +5897,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f3b820a7d9bede4eaaa3f2fcd363686, type: 3}
-    m_FontSize: 15
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -6210,8 +6210,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000009536743}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2.6044998, y: -0.000024795532}
+  m_SizeDelta: {x: 5.209, y: 0.00006485}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &265970911238946710
 GameObject:
@@ -6294,8 +6294,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -484, y: 15.3}
-  m_SizeDelta: {x: 75.1284, y: 15.7939}
+  m_AnchoredPosition: {x: -494.4048, y: 16.3534}
+  m_SizeDelta: {x: 92.4394, y: 19.7007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2003036773057273361
 MonoBehaviour:
@@ -9096,7 +9096,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f3b820a7d9bede4eaaa3f2fcd363686, type: 3}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -9124,8 +9124,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.4174, y: 25.8}
-  m_SizeDelta: {x: 67.5092, y: 18.3698}
+  m_AnchoredPosition: {x: 2.4702, y: 31.8384}
+  m_SizeDelta: {x: 80.6242, y: 21.6485}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2571170483276633925
 GameObject:
@@ -9175,7 +9175,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f3b820a7d9bede4eaaa3f2fcd363686, type: 3}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -9203,8 +9203,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.2302, y: 42.5}
-  m_SizeDelta: {x: 65.884, y: 22.0319}
+  m_AnchoredPosition: {x: 2.4702, y: 50.4}
+  m_SizeDelta: {x: 80.624, y: 22.0319}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2571170483607602419
 GameObject:
@@ -9272,7 +9272,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f3b820a7d9bede4eaaa3f2fcd363686, type: 3}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -9300,8 +9300,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.5799, y: -11.8}
-  m_SizeDelta: {x: 65.348, y: 20.3992}
+  m_AnchoredPosition: {x: 5.0541, y: -13.35}
+  m_SizeDelta: {x: 75.456, y: 23.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2571170483960445320
 MonoBehaviour:
@@ -9325,7 +9325,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f3b820a7d9bede4eaaa3f2fcd363686, type: 3}
-    m_FontSize: 15
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -9353,8 +9353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.5799, y: 5.4}
-  m_SizeDelta: {x: 65.348, y: 19.4953}
+  m_AnchoredPosition: {x: 3.5508, y: 9.7069}
+  m_SizeDelta: {x: 78.463, y: 22.614}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2571170483960445322
 GameObject:
@@ -9398,7 +9398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 697.8, y: 601.7035}
+  m_AnchoredPosition: {x: 312.39996, y: 761.5035}
   m_SizeDelta: {x: 93.8171, y: 24.1714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2703149197558412881
@@ -9450,10 +9450,10 @@ RectTransform:
   m_Father: {fileID: 3621715585057329115}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 521.6, y: 75.5}
-  m_SizeDelta: {x: 97.7876, y: 143.9418}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -73.26782, y: 91.11908}
+  m_SizeDelta: {x: 132.5232, y: 169.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3621715585057329111
 GameObject:
@@ -9506,7 +9506,7 @@ MonoBehaviour:
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -9587,8 +9587,8 @@ MonoBehaviour:
     name: Servant
     sentences:
     - Goededag! Kijk op de checklist wat je moet zoeken
-    - Maar let op! Als de timer op 0 dan is de tijd afgelopen en kunnen we de kamer
-      niet uit.
+    - Maar let op! Als de timer op 0 staat dan is de tijd afgelopen en kunnen we
+      de kamer niet uit.
     - Als je alle items in de kamer vind voordat de kamer op slot gaat kunnen we
       door.
 --- !u!1 &4344369558864113534
@@ -9747,8 +9747,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -12, y: -53}
-  m_SizeDelta: {x: 546.9473, y: 81.1687}
+  m_AnchoredPosition: {x: -6.2001, y: -50.3231}
+  m_SizeDelta: {x: 558.5471, y: 86.5224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &6642684795883059204
 Transform:
@@ -9846,7 +9846,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 3f3b820a7d9bede4eaaa3f2fcd363686, type: 3}
-    m_FontSize: 12
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -9874,7 +9874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 696.5, y: 602.7}
+  m_AnchoredPosition: {x: 311.1, y: 762.5}
   m_SizeDelta: {x: 111.3343, y: 36.4214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7837676716624098325
