@@ -5261,8 +5261,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521462152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.019, y: 0.0159, z: 0}
-  m_LocalScale: {x: 0.5304842, y: 0.42955258, z: 0.42117128}
+  m_LocalPosition: {x: 0.0249, y: 0.0159, z: 0}
+  m_LocalScale: {x: 0.43620598, y: 0.42955258, z: 0.42117128}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -5975,11 +5975,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Jekkyl
+    name: Servant
     sentences:
-    - Hoi
-    - Xd
-    - xd
+    - Je moet de kluis openen!
+    - Ik weet alleen de code niet..
+    - Wellicht kunnen we er achterkomen?
 --- !u!114 &1200911310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11726,7 +11726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Jekkyl
+    name: Servant
     sentences:
     - Hmm... Zou dat briefje voor de code zijn van de kluis?
 --- !u!4 &1733523036
@@ -12269,7 +12269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 660.1, y: 577.30347}
+  m_AnchoredPosition: {x: 698.89996, y: 602.80347}
   m_SizeDelta: {x: 93.8171, y: 24.1714}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4265217812706327798
@@ -15837,7 +15837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 554, y: 81}
+  m_AnchoredPosition: {x: 521.3, y: 76.6}
   m_SizeDelta: {x: 97.7876, y: 143.9418}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &8988884704861984251
@@ -15904,6 +15904,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 658.8, y: 578.3}
+  m_AnchoredPosition: {x: 697.6, y: 603.8}
   m_SizeDelta: {x: 111.3343, y: 36.4214}
   m_Pivot: {x: 0.5, y: 0.5}
