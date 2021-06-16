@@ -15,6 +15,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent DoneWithBookFade;
     public UnityEvent CorrectFlaskCombination;
     public UnityEvent InCorrectFlaskCombination;
+    public UnityEvent OnCombiningFlasks;
 
     private void Start()
     {

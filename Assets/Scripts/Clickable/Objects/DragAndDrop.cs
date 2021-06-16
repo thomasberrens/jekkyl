@@ -71,10 +71,11 @@ public class DragAndDrop : ClickableObject
             {
                 Debug.Log("Full");
                 _flaskManager.GetEventManager().InCorrectFlaskCombination?.Invoke();
+                _flaskManager.GetEventManager().OnRoomLose?.Invoke();
                 SetTubeToOriginalPosition();
                 return;
             }
-            
+
             _flaskManager.AddTube(TubeColor);
             
             gameObject.GetComponent<SpriteRenderer>().sprite = EmptyTubeSprite;

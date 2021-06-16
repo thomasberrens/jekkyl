@@ -30,12 +30,17 @@ public class FlaskManager : MonoBehaviour
         public void AddTube(TubeColors tubeColor)
         {
                 if (tubeColor == TubeColors.EMPTY) return;
+                if (currentTubes.Count.Equals(0))
+                {
+                        _eventManager.OnCombiningFlasks?.Invoke();
+                }
                 currentTubes.Add(tubeColor);
 
                 if (CorrectCombination())
                 {
                         gameObject.GetComponent<SpriteRenderer>().sprite = flaskSprites[flaskSprites.Length - 1].Sprite;
                         _eventManager.CorrectFlaskCombination?.Invoke();
+                        _eventManager.OnRoomLose?.Invoke();
                         Debug.Log("Correct combination");
                         return;
                 }
