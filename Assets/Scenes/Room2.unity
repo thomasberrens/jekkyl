@@ -5975,11 +5975,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Jekkyl
+    name: Servant
     sentences:
-    - Hoi
-    - Xd
-    - xd
+    - Je moet de kluis openen!
+    - Ik weet alleen de code niet..
+    - Wellicht kunnen we er achterkomen?
 --- !u!114 &1200911310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11726,7 +11726,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Jekkyl
+    name: Servant
     sentences:
     - Hmm... Zou dat briefje voor de code zijn van de kluis?
 --- !u!4 &1733523036
