@@ -21,7 +21,7 @@ public class Checklist : MonoBehaviour
     private Scene CurrentScene;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         EventManager = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
         CurrentScene = SceneManager.GetActiveScene();
@@ -59,6 +59,11 @@ public class Checklist : MonoBehaviour
             Debug.Log("Added: " + type);
         }
         
+        
+    }
+
+    private void Start()
+    {
         HandleSaveData();
     }
 
