@@ -462,7 +462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &501511493
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5705,7 +5705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Servant
+    name: Butler
     sentences:
     - Goededag!
     - We hebben de sleutel en het muntje nodig om naar de volgende kamer te gaan.
@@ -5828,7 +5828,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -9902,7 +9902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Servant
+    name: Butler
     sentences:
     - Goededag! Kijk op de checklist wat je moet zoeken
     - Maar let op! Als de timer op 0 staat dan is de tijd afgelopen en kunnen we
