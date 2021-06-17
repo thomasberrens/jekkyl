@@ -9,6 +9,7 @@ public class PaintingObject : ClickableObject
     // Start is called before the first frame update
     void Start()
     {
+        FindObjectOfType<SafeObject>().GetComponent<BoxCollider2D>().enabled = false;
         if (SaveManager.AllData.Contains("painting_fallen"))
         {
             OnClickObjectLogic();
@@ -36,6 +37,7 @@ public class PaintingObject : ClickableObject
         GameObject.FindWithTag("Room").GetComponent<SpriteRenderer>().sprite = NewSprite;
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         SaveManager.WriteString("painting_fallen");
+        FindObjectOfType<SafeObject>().GetComponent<BoxCollider2D>().enabled = true;
     }
 
     public override bool CanClickObject()
