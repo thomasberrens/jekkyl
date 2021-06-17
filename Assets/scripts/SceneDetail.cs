@@ -5,26 +5,44 @@ using UnityEngine.SceneManagement;
 
 public class SceneDetail : MonoBehaviour
 {
-    public bool IsLoaded { get; private set; }
+   // public bool IsLoaded { get; private set; }
+
+   // List<SavableEntity> SavableEntities;
     
-    public void LoadScene()
-    {
-        if (!IsLoaded)
-        {
-            SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
-            IsLoaded = true;
+   // public void LoadScene()
+  //  {
+   //     if (!IsLoaded)
+   //     {
+    //        var operation = SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
+     //       IsLoaded = true;
 
-            var currScene = SceneManager.GetSceneByName(gameObject.name);
-            var savableEntities = FindObjectsOfType<SavableEntity>().Where(x => x.gameObject.scene == currScene).ToList();
-        }
-    }
+       //     operation.completed += (AsyncOperation op) =>
+       //     {
 
-    public void UnloadScene()
-    {
-        if (IsLoaded)
-        {
-            SceneManager.UnloadSceneAsync(gameObject.name);
-            IsLoaded = false;
-        }
-    }
+       //     };
+
+       //     SavableEntities = GetSavableEntitiesInScene();
+     //       SavingSystem.i.RestoreEntityStates(SavableEntities);
+    //    }
+  //  }
+
+  //  public void UnloadScene()
+  //  {
+  //      if (IsLoaded)
+  //      {
+   //         SavingSystem.i.CaptureEntityStates(SavableEntities);
+            
+    //        SceneManager.UnloadSceneAsync(gameObject.name);
+    //        IsLoaded = false;
+
+    //        var savableEntites = GetSavableEntitiesInScene();
+    //    }
+    //}
+
+    //List<SavableEntity> GetSavableEntitiesInScene()
+    //{
+    //    var currScene = SceneManager.GetSceneByName(gameObject.name);
+    //    var savableEntities = FindObjectsOfType<SavableEntity>().Where(x => x.gameObject.scene == currScene).ToList();
+    //    return savableEntities;
+    //}
 }
