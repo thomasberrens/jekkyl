@@ -16,7 +16,10 @@ public class Cutscene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Room1");
+        }
     }
     
     private void CheckOver(UnityEngine.Video.VideoPlayer vp)

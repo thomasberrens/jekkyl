@@ -20,6 +20,8 @@ public class Checklist : MonoBehaviour
 
     private Scene CurrentScene;
     
+    public List<GameObject> textObjects = new List<GameObject>();
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -36,7 +38,7 @@ public class Checklist : MonoBehaviour
 
         
         int i = 0;
-        foreach (GameObject _textObject in GameObject.FindGameObjectsWithTag("ChecklistText"))
+        foreach (GameObject _textObject in textObjects)
         {
             Text text = _textObject.GetComponent<Text>();
             text.text = "";

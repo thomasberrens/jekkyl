@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class SaveManager : MonoBehaviour
 {
 
-    private static string path = "Assets/Resources/savedata.txt";
+    private static string path = "savedata.txt";
 
     public static List<string> AllData;
 
@@ -24,6 +24,8 @@ public class SaveManager : MonoBehaviour
         if (!File.Exists(path))
         {
             File.Create(path);
+            AllData = new List<string>();
+            return;
         }
         
         AllData = File.ReadAllLines(path).ToList();
@@ -55,6 +57,7 @@ public class SaveManager : MonoBehaviour
     public static void WriteString(string data)
     {
         //Write some text to the test.txt file
+     //   Debug.Log("alldata: " + AllData);
         if (AllData.Contains(data))
         {
             Debug.Log("Data already exists: " + data); 
@@ -65,8 +68,7 @@ public class SaveManager : MonoBehaviour
         writer.WriteLine(data);
         writer.Close();
     }
-
-    [MenuItem("Tools/Read file")]
+    
     public static string ReadString()
     {
         //Read the text from directly from the test.txt file
