@@ -17,6 +17,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent InCorrectFlaskCombination;
     public UnityEvent OnCombiningFlasks;
     public UnityEvent OnBookOpen;
+    public UnityEvent OnRoomSwitch;
 
     private void Start()
     {

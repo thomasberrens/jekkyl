@@ -24,19 +24,24 @@ public class SafeObject : ClickableObject
 
     private GameObject EventManager;
 
+    private GameObject OpenSafeGO;
+
     private GameObject Safe;
     // Start is called before the first frame update
     void Start()
     {
+        OpenSafeGO = GameObject.FindWithTag("OpenSafe");
         SafeCanvas = GameObject.FindWithTag("SafeCanvas");
         _textObject = GameObject.FindWithTag("SafeText");
         Safe = GameObject.FindWithTag("SafeBig");
         EventManager = GameObject.FindWithTag("EventManager");
+        Key = GameObject.Find("Key");
         _text = _textObject.GetComponent<Text>();
         _text.text = "";
         _text.color = Color.black;
 
         Key.active = false;
+        OpenSafeGO.active = false;
         
         SafeCanvas.active = false;
     }
@@ -78,13 +83,12 @@ public class SafeObject : ClickableObject
         foreach (Transform transform in childrenObjects)
         {
             GameObject gameObject = transform.gameObject;
-            Debug.Log(gameObject.name);
-            if (gameObject.name.Equals(SafeCanvas.name)) continue;
-            if (gameObject.name.Equals(Safe.name)) continue;
+         //   if (gameObject.name.Equals(SafeCanvas.name)) continue;
+         //   if (gameObject.name.Equals(Safe.name)) continue;
             gameObject.active = false;
         }
 
-        Safe.GetComponent<Image>().sprite = OpenSafeImage;
+        OpenSafeGO.active = true;
         Key.active = true;
     }
 
