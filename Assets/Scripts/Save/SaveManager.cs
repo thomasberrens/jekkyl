@@ -31,6 +31,11 @@ public class SaveManager : MonoBehaviour
         AllData = File.ReadAllLines(path).ToList();
     }
 
+    public static string GetPath()
+    {
+        return path;
+    }
+
     void Start()
     {
         CurrentScene = SceneManager.GetActiveScene();
