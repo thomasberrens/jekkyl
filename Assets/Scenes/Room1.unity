@@ -5708,8 +5708,7 @@ MonoBehaviour:
     name: Butler
     sentences:
     - Goededag!
-    - We hebben de sleutel en het muntje nodig om naar de volgende kamer te gaan.
-      Kan jij ze oppakken?
+    - We hebben de sleutel nodig om naar de volgende kamer te gaan. Kan jij hem zoeken?
 --- !u!1 &1413750820
 GameObject:
   m_ObjectHideFlags: 0
