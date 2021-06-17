@@ -7,8 +7,7 @@ public class BookObject : ClickableObject
 {
     private GameObject BookOpen;
     private GameObject Key;
-
-    private Image _image;
+    
 
     [SerializeField] private float FadeTime = 1f;
 
@@ -19,7 +18,7 @@ public class BookObject : ClickableObject
         EventManager = GameObject.FindWithTag("EventManager");
         BookOpen = GameObject.FindWithTag("BookOpen");
         Key = GameObject.Find("Key");
-        _image = BookOpen.GetComponent<Image>();
+       // _imageColor = BookOpen.GetComponent<SpriteRenderer>().color;
         BookOpen.active = false;
         Key.active = false;
     }
@@ -63,15 +62,22 @@ public class BookObject : ClickableObject
         // fade from opaque to transparent
         if (fadeAway)
         {
+            
             // loop over 1 second backwards
             for (float i = FadeTime; i >= 0; i -= Time.deltaTime)
             {
+                if (Key.active)
+                {
+                    Key.GetComponent<ClickableObject>().OnMouseExit();
+                    Key.active = false;
+                }
                 // set color with i as alpha
-                _image.color = new Color(1, 1, 1, i);
+                BookOpen.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, i);
                 yield return null;
             }
-
+            
             BookOpen.active = false;
+            
         }
         // fade from transparent to opaque
         else
@@ -80,7 +86,7 @@ public class BookObject : ClickableObject
             for (float i = 0; i <= FadeTime; i += Time.deltaTime)
             {
                 // set color with i as alpha
-                _image.color = new Color(1, 1, 1, i);
+                BookOpen.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, i);
                 yield return null;
             }
             
