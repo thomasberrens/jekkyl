@@ -16,9 +16,8 @@ public class SafeObject : ClickableObject
     
     [SerializeField] private float waitTime = 1f;
     [SerializeField] private float FadeTime = 1f;
-
-    [SerializeField] private Sprite OpenSafeImage;
-    [SerializeField] private GameObject Key;
+    
+ //   [SerializeField] private GameObject Key;
 
     private GameObject SafeCanvas;
 
@@ -35,15 +34,14 @@ public class SafeObject : ClickableObject
         _textObject = GameObject.FindWithTag("SafeText");
         Safe = GameObject.FindWithTag("SafeBig");
         EventManager = GameObject.FindWithTag("EventManager");
-        Key = GameObject.Find("Key");
         _text = _textObject.GetComponent<Text>();
         _text.text = "";
         _text.color = Color.black;
-
-        Key.active = false;
+        
         OpenSafeGO.active = false;
         
         SafeCanvas.active = false;
+        
     }
 
     // Update is called once per frame
@@ -71,8 +69,10 @@ public class SafeObject : ClickableObject
     
     private void OpenSafe()
     {
+        if (SaveManager.AllData.Contains(SceneManager.GetActiveScene().name + "_finished")) return;
+        
         SafeCanvas.active = true;
-        Key.active = false;
+        EventManager.GetComponent<EventManager>().OnSafeOpen?.Invoke();
         StartCoroutine(FadeImage(false));
     }
 
@@ -89,7 +89,8 @@ public class SafeObject : ClickableObject
         }
 
         OpenSafeGO.active = true;
-        Key.active = true;
+
+        EventManager.GetComponent<EventManager>().OnSafeCodeCorrect?.Invoke();
     }
 
     IEnumerator SetCodeText()

@@ -86,6 +86,11 @@ public class Checklist : MonoBehaviour
                 Debug.Log("Done");
 
             }
+
+            foreach (GameObject gameObject in RoomObjects.Values)
+            {
+                gameObject.GetComponent<ClickableObject>().SetFound(true);
+            }
         }
     }
 

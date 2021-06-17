@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class BookObject : ClickableObject
 {
     private GameObject BookOpen;
-    private GameObject Key;
+    [SerializeField] private GameObject Key;
     
-
     [SerializeField] private float FadeTime = 1f;
 
     private GameObject EventManager;
@@ -17,10 +16,8 @@ public class BookObject : ClickableObject
     {
         EventManager = GameObject.FindWithTag("EventManager");
         BookOpen = GameObject.FindWithTag("BookOpen");
-        Key = GameObject.Find("Key");
-       // _imageColor = BookOpen.GetComponent<SpriteRenderer>().color;
+        // _imageColor = BookOpen.GetComponent<SpriteRenderer>().color;
         BookOpen.active = false;
-        Key.active = false;
     }
 
     // Update is called once per frame
@@ -42,7 +39,7 @@ public class BookObject : ClickableObject
     public override void OnClickObjectLogic()
     {
         BookOpen.active = true;
-        Key.active = true;
+        EventManager.GetComponent<EventManager>().OnBookOpen?.Invoke();
         StartCoroutine(FadeImage(false));
     }
 
@@ -66,18 +63,13 @@ public class BookObject : ClickableObject
             // loop over 1 second backwards
             for (float i = FadeTime; i >= 0; i -= Time.deltaTime)
             {
-                if (Key.active)
-                {
-                    Key.GetComponent<ClickableObject>().OnMouseExit();
-                    Key.active = false;
-                }
                 // set color with i as alpha
+                
                 BookOpen.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, i);
                 yield return null;
             }
             
             BookOpen.active = false;
-            
         }
         // fade from transparent to opaque
         else
@@ -86,6 +78,7 @@ public class BookObject : ClickableObject
             for (float i = 0; i <= FadeTime; i += Time.deltaTime)
             {
                 // set color with i as alpha
+
                 BookOpen.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, i);
                 yield return null;
             }

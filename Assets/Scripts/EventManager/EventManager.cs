@@ -18,6 +18,10 @@ public class EventManager : MonoBehaviour
     public UnityEvent OnCombiningFlasks;
     public UnityEvent OnBookOpen;
     public UnityEvent OnRoomSwitch;
+    public UnityEvent OnSafeCodeCorrect;
+    public UnityEvent OnSafeOpen;
+    public UnityEvent OnFlaskFill;
+    public UnityEvent OnTubeReset;
 
     private void Start()
     {
