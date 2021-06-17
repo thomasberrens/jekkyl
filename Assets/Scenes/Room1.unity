@@ -206,6 +206,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 326535762}
+        m_TargetAssemblyTypeName: KeyObject, Assembly-CSharp
+        m_MethodName: FadeKeyAway
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   CorrectFlaskCombination:
     m_PersistentCalls:
       m_Calls: []
@@ -217,7 +229,19 @@ MonoBehaviour:
       m_Calls: []
   OnBookOpen:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 326535762}
+        m_TargetAssemblyTypeName: KeyObject, Assembly-CSharp
+        m_MethodName: ShowKey
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnRoomSwitch:
     m_PersistentCalls:
       m_Calls: []
@@ -274,6 +298,7 @@ MonoBehaviour:
   OriginalCursorTexture: {fileID: 2800000, guid: b66e0b4ab6f5717448574c3e30a72993,
     type: 3}
   cursorMode: 0
+  FadeTime: 1
 --- !u!212 &326535763
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10122,6 +10147,7 @@ MonoBehaviour:
   OriginalCursorTexture: {fileID: 2800000, guid: b66e0b4ab6f5717448574c3e30a72993,
     type: 3}
   cursorMode: 0
+  Key: {fileID: 0}
   FadeTime: 2
 --- !u!1 &5784238512097796590
 GameObject:

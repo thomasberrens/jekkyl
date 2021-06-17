@@ -17,9 +17,12 @@ public class FlaskManager : MonoBehaviour
         private List<TubeColors> currentTubes = new List<TubeColors>();
         private EventManager _eventManager;
 
+        private Sprite OriginalSprite;
+
         private void Start()
         {
                 _eventManager = GameObject.FindWithTag("EventManager").GetComponent<EventManager>();
+                OriginalSprite = GetComponent<SpriteRenderer>().sprite;
         }
 
         private void Update()
@@ -47,6 +50,12 @@ public class FlaskManager : MonoBehaviour
                 
                 SetRandomSprite();
 
+        }
+
+        public void ResetFlask()
+        {
+                currentTubes.Clear();
+                GetComponent<SpriteRenderer>().sprite = OriginalSprite;
         }
 
         private void PrintCurrentTubes()
