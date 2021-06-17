@@ -6,9 +6,12 @@ public class SwitchToScene : ClickableObject
 {
 
     [SerializeField] private string SceneToSwitch;
+    private EventManager _eventManager;
+    private LevelLoader _levelLoader;
     private void Start()
     {
-        
+        _eventManager = GameObject.FindWithTag("EventManager").GetComponent<EventManager>();
+        _levelLoader = FindObjectOfType<LevelLoader>();
     }
 
     private void Update()
@@ -28,7 +31,7 @@ public class SwitchToScene : ClickableObject
 
     public override void OnClickObjectLogic()
     {
-        SceneManager.LoadScene(SceneToSwitch);
+        _levelLoader.LoadLevelAnimation(SceneToSwitch);
     }
     
 
