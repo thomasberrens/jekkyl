@@ -18,6 +18,7 @@ TagManager:
   - BookOpen
   - Flask Manager
   - OpenSafe
+  - Room
   layers:
   - Default
   - TransparentFX
