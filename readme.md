@@ -37,7 +37,7 @@ In onze game hou je je als speler bezig om de "opdrachten" van jouw omgeving (ro
 |<img width=500/>|<img width=300/>|
 
    [Backlog]: <https://trello.com/b/QXpfaDhG/mythe>
-   [Logboek]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/logboek.pdf>
+   [Logboek]: <https://drive.google.com/file/d/1MDl-P6InikRmUMlFITTZ4phKx9Z_IvDK/view?usp=sharing>
    [GameDesignDoc]: <https://docs.google.com/document/d/1KJ5pYf9rNNln5HMkvXJd0IuAH0WYRVE-mMMZKdI6YgA/edit?usp=sharing>
    [RetrospectiveVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/RetrospectiveVerslagen.pdf>
    [ReviewVerslagen]: <https://github.com/thomasberrens/jekkyl/blob/master/SprintReviews/sprintreview02_team08.pdf>
