@@ -40,8 +40,8 @@ In onze game hou je je als speler bezig om de "opdrachten" van jouw omgeving (ro
    [Logboek]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/logboek.pdf>
    [GameDesignDoc]: <https://docs.google.com/document/d/1KJ5pYf9rNNln5HMkvXJd0IuAH0WYRVE-mMMZKdI6YgA/edit?usp=sharing>
    [RetrospectiveVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/RetrospectiveVerslagen.pdf>
-   [ReviewVerslagen]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/ReviewVerslagen.pdf>
-   [Prototype]: <https://www.mijnmytheprototype.nl>
-   [Folder op teams]: <https://www.linknaarmijnfolderopteams.nl>
+   [ReviewVerslagen]: <https://github.com/thomasberrens/jekkyl/blob/master/SprintReviews/sprintreview02_team08.pdf>
+   [Prototype]: <https://we.tl/t-yAbACUpwOj>
+   [Folder op teams]: <https://teams.microsoft.com/_#/school/files/Team%2008?threadId=19%3A7e4b71fc83d64f0b89fae06c5d2f6f81%40thread.tacv2&ctx=channel&context=Team%25208&rootfolder=%252Fteams%252FMytheGDGA2021-Team8%252FGedeelde%2520documenten%252FTeam%25208>
    [AssetPlanning]: <https://github.com/BerendWeij/agp_inlever_template/blob/master/producten/AssetPlanning.pdf>
    
