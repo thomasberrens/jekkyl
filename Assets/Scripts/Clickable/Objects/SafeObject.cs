@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SafeObject : ClickableObject
@@ -16,26 +16,32 @@ public class SafeObject : ClickableObject
     
     [SerializeField] private float waitTime = 1f;
     [SerializeField] private float FadeTime = 1f;
-
-    [SerializeField] private Sprite OpenSafeImage;
-    [SerializeField] private GameObject Key;
+    
+ //   [SerializeField] private GameObject Key;
 
     private GameObject SafeCanvas;
+
+    private GameObject EventManager;
+
+    private GameObject OpenSafeGO;
 
     private GameObject Safe;
     // Start is called before the first frame update
     void Start()
     {
+        OpenSafeGO = GameObject.FindWithTag("OpenSafe");
         SafeCanvas = GameObject.FindWithTag("SafeCanvas");
         _textObject = GameObject.FindWithTag("SafeText");
         Safe = GameObject.FindWithTag("SafeBig");
+        EventManager = GameObject.FindWithTag("EventManager");
         _text = _textObject.GetComponent<Text>();
         _text.text = "";
-        _text.color = Color.cyan;
-
-        Key.active = false;
+        _text.color = Color.black;
+        
+        OpenSafeGO.active = false;
         
         SafeCanvas.active = false;
+        
     }
 
     // Update is called once per frame
@@ -63,8 +69,10 @@ public class SafeObject : ClickableObject
     
     private void OpenSafe()
     {
+        if (SaveManager.AllData.Contains(SceneManager.GetActiveScene().name + "_finished")) return;
+        
         SafeCanvas.active = true;
-        Key.active = false;
+        EventManager.GetComponent<EventManager>().OnSafeOpen?.Invoke();
         StartCoroutine(FadeImage(false));
     }
 
@@ -75,32 +83,34 @@ public class SafeObject : ClickableObject
         foreach (Transform transform in childrenObjects)
         {
             GameObject gameObject = transform.gameObject;
-            Debug.Log(gameObject.name);
-            if (gameObject.name.Equals(SafeCanvas.name)) continue;
-            if (gameObject.name.Equals(Safe.name)) continue;
+         //   if (gameObject.name.Equals(SafeCanvas.name)) continue;
+         //   if (gameObject.name.Equals(Safe.name)) continue;
             gameObject.active = false;
         }
 
-        Safe.GetComponent<Image>().sprite = OpenSafeImage;
-        Key.active = true;
+        OpenSafeGO.active = true;
+
+        EventManager.GetComponent<EventManager>().OnSafeCodeCorrect?.Invoke();
     }
 
     IEnumerator SetCodeText()
     {
+        bool correctInput = IsInputRight();
+        bool _codeLocked = false;
         string text;
         Color color;
-        if (IsInputRight())
+        if (correctInput)
         {
-            text = "You won!";
+            text = "Correct!";
             color = Color.green;
-            OnCodeCorrect();
         }
         else
         {
             CurrentTries++;
-            if (CurrentTries >= MaxTries)
+            _codeLocked = CurrentTries >= MaxTries;
+            if (_codeLocked)
             {
-                text = "Tried too much";
+                text = "LOCKED...";
                 color = Color.grey;
             }
             else
@@ -118,12 +128,24 @@ public class SafeObject : ClickableObject
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        
+
         _text.text = "";
-        _text.color = Color.cyan;
+        _text.color = Color.black;
+
+        if (_codeLocked)
+        {
+            Debug.Log("LOCKED");
+            SceneManager.LoadScene("Scenes/WinLose/Lose");
+            yield return null;
+        }
+        
+        if (correctInput)
+        {
+            OnCodeCorrect();
+        }
         yield return null;
     }
-    
+
     IEnumerator FadeImage(bool fadeAway)
     {
         Image image = Safe.GetComponent<Image>();

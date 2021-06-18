@@ -18,6 +18,8 @@ public abstract class ClickableObject : MonoBehaviour
     private bool IsHovering;
     private bool GrabTimer;
 
+    private bool found = false;
+
     private void Awake()
     {
         m_Renderer = GetComponent<MeshRenderer>();
@@ -40,6 +42,16 @@ public abstract class ClickableObject : MonoBehaviour
             StartCoroutine(InteractWithObject());
             OnClickObjectLogic();
         }
+    }
+
+    public void SetFound(bool found)
+    {
+        this.found = found;
+    }
+
+    public bool IsObjectFound()
+    {
+        return found;
     }
 
     public void OnMouseExit()

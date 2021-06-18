@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
@@ -12,11 +14,19 @@ public class Timer : MonoBehaviour
     float min;
 
     private EventManager _eventManager;
-    
+
+    private Scene CurrentScene;
+
     private void Start()
     {
+        CurrentScene = SceneManager.GetActiveScene();
         _eventManager = GameObject.FindGameObjectWithTag("EventManager").GetComponent<EventManager>();
-        StartCoroutine("StopWatch");
+        _eventManager.OnRoomWin?.AddListener(FreezeTimer);
+        if (!IsTimerFrozen())
+        {
+            StartCoroutine("StopWatch");
+        }
+        
     }
 
     IEnumerator StopWatch()
@@ -36,6 +46,17 @@ public class Timer : MonoBehaviour
         }
         Debug.Log("Lose - Timer off");
         _eventManager.OnRoomLose?.Invoke();
+    }
+    
+    public void FreezeTimer()
+    {
+        SaveManager.WriteString(CurrentScene.name + "_timer_frozen");
+        StopCoroutine("StopWatch");
+    }
+
+    private bool IsTimerFrozen()
+    {
+        return SaveManager.AllData.Contains(CurrentScene.name + "_timer_frozen");
     }
 
     void Update()

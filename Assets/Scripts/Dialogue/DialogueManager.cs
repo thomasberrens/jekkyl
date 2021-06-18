@@ -24,12 +24,13 @@ public class DialogueManager : MonoBehaviour {
     void Start () {
         sentences = new Queue<string>();
         _dialogueTrigger = GetComponent<DialogueTrigger>();
+        _continueButton = GameObject.FindWithTag("ContinueButton");
         if (OnStart)
         {
             _dialogueTrigger.TriggerDialogue();
         }
 
-        _continueButton = GameObject.FindWithTag("ContinueButton");
+        
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -37,7 +38,7 @@ public class DialogueManager : MonoBehaviour {
         animator.SetBool("IsOpen", true);
 
         nameText.text = dialogue.name;
-
+        
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)

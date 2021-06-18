@@ -15,6 +15,11 @@ TagManager:
   - brokenvase
   - VaseCode
   - SafeBig
+  - BookOpen
+  - Flask Manager
+  - OpenSafe
+  - Room
+  - BackgroundMusic
   layers:
   - Default
   - TransparentFX
