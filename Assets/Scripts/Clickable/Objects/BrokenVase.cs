@@ -28,7 +28,7 @@ public class BrokenVase : ClickableObject
 
     public override void OnClickObjectLogic()
     {
-        GameObject.FindWithTag("EventManager").GetComponent<EventManager>().OnBreakVase?.Invoke();
+        GameObject.FindWithTag("EventManager").GetComponent<EventManager>().OnShowTicket?.Invoke();
     }
 
     public override bool CanClickObject()

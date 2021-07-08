@@ -4,9 +4,10 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Replay : MonoBehaviour
+public class Replay : ClickableObject
 {
     // Start is called before the first frame update
+    [SerializeField] private bool WithSavedata;
     void Start()
     {
         
@@ -28,7 +29,33 @@ public class Replay : MonoBehaviour
     {
         SaveManager.AllData.Clear();
         File.Delete(SaveManager.GetPath());
+        Debug.Log(GameObject.FindWithTag("BackgroundMusic"));
         Destroy(GameObject.FindWithTag("BackgroundMusic"));
         SceneManager.LoadScene(0);
+    }
+
+    public override void OnMouseEnterLogic()
+    {
+    }
+
+    public override void OnMouseExitLogic()
+    {
+    }
+
+    public override void OnClickObjectLogic()
+    {
+        if (WithSavedata)
+        {
+            ReplayWithData();
+        }
+        else
+        {
+            ReplayWithoutData();
+        }
+    }
+
+    public override bool CanClickObject()
+    {
+        return true;
     }
 }

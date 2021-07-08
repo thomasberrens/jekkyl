@@ -22,6 +22,7 @@ public class EventManager : MonoBehaviour
     public UnityEvent OnSafeOpen;
     public UnityEvent OnFlaskFill;
     public UnityEvent OnTubeReset;
+    public UnityEvent OnShowTicket;
 
     private void Start()
     {
